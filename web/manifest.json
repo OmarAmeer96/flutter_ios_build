@@ -1,6 +1,6 @@
 {
-    "name": "amantac",
-    "short_name": "amantac",
+    "name": "shop_flow",
+    "short_name": "shop_flow",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

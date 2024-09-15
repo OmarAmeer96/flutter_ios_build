@@ -1,32 +1,16 @@
-import 'package:amantac/core/routing/routes.dart';
-import 'package:amantac/features/onboarding/onboarding_view.dart';
 import 'package:flutter/material.dart';
+import 'package:shop_flow/core/routing/routes.dart';
+import 'package:shop_flow/features/splash/presentation/views/splash_view.dart';
 
 class AppRouter {
   Route generateRoute(RouteSettings settings) {
-    // This arguments to be passed in any screen like this: (arguments as ClassName).
     // ignore: unused_local_variable
     final arguments = settings.arguments;
-
     switch (settings.name) {
-      case Routes.onBoardingView:
+      case Routes.splashView:
         return MaterialPageRoute(
-          builder: (_) => const OnboardingView(),
+          builder: (_) => const SplashView(),
         );
-      // case Routes.loginView:
-      //   return MaterialPageRoute(
-      //     builder: (_) => BlocProvider(
-      //       create: (context) => getIt<LoginCubit>(),
-      //       child: const LoginView(),
-      //     ),
-      //   );
-      // case Routes.signUpScreen:
-      //   return MaterialPageRoute(
-      //     builder: (_) => BlocProvider(
-      //       create: (context) => getIt<SignupCubit>(),
-      //       child: const SignUpView(),
-      //     ),
-      //   );
       // case Routes.homeView:
       //   return MaterialPageRoute(
       //     builder: (_) => const HomeView(),

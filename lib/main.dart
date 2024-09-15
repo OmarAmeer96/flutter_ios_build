@@ -1,16 +1,22 @@
-import 'package:amantac/amantac.dart';
-import 'package:amantac/core/di/dependency_injection.dart';
-import 'package:amantac/core/routing/app_router.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:shop_flow/core/routing/app_router.dart';
+import 'package:shop_flow/core/shared_prefs/shared_prefs.dart';
+import 'package:shop_flow/shop_flow.dart';
 
 void main() async {
-  setupGetIt();
-  // This is used to fix the texts being hidden bug in flutter_screenutil in release mode.
-  await ScreenUtil.ensureScreenSize();
+  // Make sure WidgetsBinding is initialized before Firebase (runApp won't do be triggered before them).
+  WidgetsFlutterBinding.ensureInitialized();
+
+  // Initialize Shared Preferences
+  await initSharedPrefsAndGetData();
+
   runApp(
-    Amantac(
+    ShopFlow(
       appRouter: AppRouter(),
     ),
   );
+}
+
+Future<void> initSharedPrefsAndGetData() async {
+  await SharedPrefs.cacheintialization();
 }
